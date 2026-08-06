@@ -15,5 +15,13 @@
             }
             return result;
         }
+        // Action<Product> is used because we only need to perform an operation (printing)
+        public static void PrintReport(List<Product> products,Action<Product> action)
+        {
+            foreach (var item in products)
+            {
+                action(item);
+            }    
+        } 
     }
 }

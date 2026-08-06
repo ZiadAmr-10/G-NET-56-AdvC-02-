@@ -32,6 +32,10 @@
             {
                 Console.WriteLine(product);     
             }
+            Console.WriteLine("==========Print Short Report==========");
+            ProductService.PrintReport(list.Catalog, p => Console.WriteLine($"{p.Name} - ${p.Price}"));
+            Console.WriteLine("==========Print Detaild Report==========");
+            ProductService.PrintReport(list.Catalog, p => Console.WriteLine($"[{p.Category}] {p.Name} | Price:${p.Price}|Stock:{p.Stock}"));
         }
     }
 
