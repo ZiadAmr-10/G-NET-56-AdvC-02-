@@ -48,6 +48,12 @@
             {
                 Console.WriteLine(product);
             }
+            Console.WriteLine("==========LOW STOCK ALERT==========");
+            List<Product> ListProduct = ProductService.FilterProduct(list.Catalog, p => p.Stock < 20);
+            foreach ( var product in ListProduct)
+            {
+                Console.WriteLine($"[LOW STOCK] {product.Name}: only {product.Stock} left!");
+            }
         }
     }
 

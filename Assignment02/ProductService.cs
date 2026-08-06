@@ -32,5 +32,18 @@
             }
             return Result;
         }
+        //// Predicate<Product> is used to filter products based on a condition  because it returns bool (true or false).
+        public static List<Product> FilterProduct(List<Product> listProduct , Predicate<Product> filter)
+        {
+            List<Product> Result = new();
+            foreach (var item in listProduct )
+            {
+                if(filter(item))
+                {
+                    Result.Add(item);
+                }
+            }
+            return Result;
+        }
     }
 }
