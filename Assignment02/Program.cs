@@ -36,6 +36,18 @@
             ProductService.PrintReport(list.Catalog, p => Console.WriteLine($"{p.Name} - ${p.Price}"));
             Console.WriteLine("==========Print Detaild Report==========");
             ProductService.PrintReport(list.Catalog, p => Console.WriteLine($"[{p.Category}] {p.Name} | Price:${p.Price}|Stock:{p.Stock}"));
+            Console.WriteLine("===========SummaryList==========");
+            List<string> stringTransform = ProductService.Transform(list.Catalog, p => $"{p.Name} (${p.Price})");
+            foreach ( var product in stringTransform)
+            {
+                Console.WriteLine(product);
+            }
+            Console.WriteLine("==========Price Labels==========");
+            List<string> priceLabels = ProductService.Transform(list.Catalog, p => p.Price > 100 ? $"{p.Name}| Expensive" : $"{p.Name}|Affordable");
+            foreach ( var product in priceLabels)
+            {
+                Console.WriteLine(product);
+            }
         }
     }
 

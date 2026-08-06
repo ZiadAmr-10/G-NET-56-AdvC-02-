@@ -22,6 +22,15 @@
             {
                 action(item);
             }    
-        } 
+        }
+        public static List<T> Transform<T>(List<Product> product, Func<Product,T> transform ) 
+        {
+            List<T> Result = new();
+            foreach (var item in product)
+            {
+               Result.Add(transform(item));
+            }
+            return Result;
+        }
     }
 }
